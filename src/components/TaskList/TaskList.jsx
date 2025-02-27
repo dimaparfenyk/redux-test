@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { statusFilters } from "../../redux/filters/constants";
+import { statusFilters } from "../../redux/constants";
 import { getTasks, getStatusFilter } from "../../redux/selectors";
 import Task from "../Task/Task";
 import css from "./TaskList.module.css";
