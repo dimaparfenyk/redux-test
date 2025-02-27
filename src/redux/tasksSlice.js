@@ -1,5 +1,4 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
-import { statusFilters } from "./constants";
 
 const tasksState = [
   { id: 0, text: "Learn HTML and CSS", completed: true },
@@ -34,19 +33,5 @@ const tasksSlice = createSlice({
   },
 });
 
-const filtersState = { status: statusFilters.all };
-
-const filtersSlice = createSlice({
-  name: "filters",
-  initialState: filtersState,
-  reducers: {
-    setStatusFilter: (state, action) => {
-      return { ...state, status: action.payload };
-    },
-  },
-});
-
 export const { addTask, deleteTask, toggleTask } = tasksSlice.actions;
-export const { setStatusFilter } = filtersSlice.actions;
 export const tasksReducer = tasksSlice.reducer;
-export const filtersReducer = filtersSlice.reducer;
