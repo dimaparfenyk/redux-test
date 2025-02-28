@@ -57,7 +57,7 @@ export const deleteTask = createAsyncThunk(
 );
 
 export const toggleTask = createAsyncThunk(
-  "task/toggleTask",
+  "tasks/toggleTask",
   async (task, thunkAPI) => {
     try {
       const res = await fetch(

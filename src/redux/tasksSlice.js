@@ -60,61 +60,6 @@ const tasksSlice = createSlice({
       })
       .addCase(toggleTask.rejected, handleRejected);
   },
-  // addTask: {
-  //   reducer(state, action) {
-  //     state.items.push(action.payload);
-  //   },
-  //   prepare(text) {
-  //     return { payload: { id: nanoid(), text, completed: false } };
-  //   },
-  // },
-
-  // deleteTask: (state, action) => {
-  //   state.items = state.items.filter((task) => task.id !== action.payload);
-  // },
-
-  // toggleTask: (state, action) => {
-  //   const task = state.items.find((task) => task.id === action.payload);
-  //   if (task) task.completed = !task.completed;
-  // },
 });
 
-// иммутабельное изменеие как-будто без IMMER
-
-// const tasksSlice = createSlice({
-//   name: "tasks",
-//   initialState: tasksState,
-//   reducers: {
-//     addTask: {
-//       reducer(state, action) {
-//         return { ...state, items: [...state.items, action.payload] };
-//       },
-//       prepare(text) {
-//         return { payload: { id: nanoid(), text, completed: false } };
-//       },
-//     },
-
-//     deleteTask: (state, action) => {
-//       return {
-//         ...state,
-//         items: state.items.filter((task) => task.id !== action.payload),
-//       };
-//     },
-
-//     toggleTask: (state, action) => {
-//       return {
-//         ...state,
-//         items: state.items.map((task) =>
-//           task.id === action.payload
-//             ? { ...task, completed: !task.completed }
-//             : task
-//         ),
-//       };
-//     },
-//   },
-// });
-
-// export const { addTask, deleteTask, toggleTask } = tasksSlice.actions;
-// export const { fetchingInProgress, fetchingSuccess, fetchingError } =
-//   tasksSlice.actions;
 export const tasksReducer = tasksSlice.reducer;
