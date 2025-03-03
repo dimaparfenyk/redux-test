@@ -1,13 +1,15 @@
-import { createStore, combineReducers } from "redux";
-import { devToolsEnhancer } from "@redux-devtools/extension";
-import { tasksReducer } from "./tasks/reducer";
-import { filtersReducer } from "./filters/reducer";
+import { configureStore } from "@reduxjs/toolkit";
+import { setupListeners } from "@reduxjs/toolkit/query";
+import { filtersReducer } from "./filtersSlice";
+import { tasksApi } from "./tasks";
 
-const rootReducer = combineReducers({
-  tasks: tasksReducer,
-  filters: filtersReducer,
+export const store = configureStore({
+  reducer: {
+    [tasksApi.reducerPath]: tasksApi.reducer,
+    filters: filtersReducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(tasksApi.middleware),
 });
 
-const enhancer = devToolsEnhancer();
-
-export const store = createStore(rootReducer, enhancer);
+setupListeners(store.dispatch);
