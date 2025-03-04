@@ -4,6 +4,7 @@ import { tasksCount } from "../../utilities/getTasksCount";
 
 const TaskCounter = () => {
   const { data } = tasksApi.endpoints.getTasks.useQueryState();
+
   const count = tasksCount(data);
 
   return (
